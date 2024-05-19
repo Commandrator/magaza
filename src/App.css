@@ -1,3 +1,4 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
 .App {
   text-align: center;
 }
@@ -35,4 +36,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.image-gallery-description {
+  display: none;
+}
+.image-gallery-slide img {
+  max-height: 540px;
+  max-width: 1343px;
+  width: auto;
+}
+.image-gallery-left-nav, .image-gallery-right-nav {
+  display: none;
+}
+
+.product-card .button-container {
+  opacity: 0; /* Başlangıçta butonu gizle */  
+  transition: opacity 400ms;
+}
+
+.product-card:hover .button-container {
+  opacity: 1; /* Kartın üzerine gelindiğinde butonu görünür yap */
 }
