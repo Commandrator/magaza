@@ -42,17 +42,18 @@
       "last 1 safari version"
     ]
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "description": "React satış uygulaması.",
   "main": "index.js",
   "devDependencies": {},
   "author": "Talha YAŞAR <talha_6152@hotmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Commandrator/react-store-app.git"
+    "url": "git+https://github.com/Commandrator/magaza.git"
   },
   "bugs": {
-    "url": "https://github.com/Commandrator/react-store-app/issues"
+    "url": "https://github.com/Commandrator/magaza/issues"
   },
-  "homepage": "https://github.com/Commandrator/react-store-app#readme"
+  "homepage": "https://github.com/Commandrator/magaza#readme",
+  "keywords": []
 }
