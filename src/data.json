@@ -1,0 +1,67 @@
+{
+    "p":[
+        {
+          "id":"10",
+          "image":{
+            "url":"https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR0N-ZarQchdOpvTQndV2E-JJCtH38cYTBXW28wB9im0MwVpCrYpSkx_YlvAtoaiOWEwWjQDEGhhHYB87Yb_FqYz_GOJfNvP89la6lbATIrLpNIkJAbJizQ&usqp=CAE",
+            "alt":"İcuana"
+          },
+          "name":"Ürün Adı",
+          "about":"Ürün özellikleri hakkında detay. Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          "price":"100",
+          "currency":"₺"
+        },
+        {
+          "id":"20",
+          "image":{
+            "url":"https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR0N-ZarQchdOpvTQndV2E-JJCtH38cYTBXW28wB9im0MwVpCrYpSkx_YlvAtoaiOWEwWjQDEGhhHYB87Yb_FqYz_GOJfNvP89la6lbATIrLpNIkJAbJizQ&usqp=CAE",
+            "alt":"İcuana"
+          },
+          "name":"Ürün Adı",
+          "about":"Ürün özellikleri hakkında detay. Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          "price":"100",
+          "currency":"₺"
+        },
+        {
+          "id":"22",
+          "image":{
+            "url":"https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR0N-ZarQchdOpvTQndV2E-JJCtH38cYTBXW28wB9im0MwVpCrYpSkx_YlvAtoaiOWEwWjQDEGhhHYB87Yb_FqYz_GOJfNvP89la6lbATIrLpNIkJAbJizQ&usqp=CAE",
+            "alt":"İcuana"
+          },
+          "name":"Ürün Adı",
+          "about":"Ürün özellikleri hakkında detay. Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          "price":"100",
+          "currency":"₺"
+        },
+        {
+          "id":"23",
+          "image":{
+            "url":"https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR0N-ZarQchdOpvTQndV2E-JJCtH38cYTBXW28wB9im0MwVpCrYpSkx_YlvAtoaiOWEwWjQDEGhhHYB87Yb_FqYz_GOJfNvP89la6lbATIrLpNIkJAbJizQ&usqp=CAE",
+            "alt":"İcuana"
+          },
+          "name":"Ürün Adı",
+          "about":"Ürün özellikleri hakkında detay. Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          "price":"100",
+          "currency":"$"
+        },
+        {
+          "id":"21",
+          "image":{
+            "url":"https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR0N-ZarQchdOpvTQndV2E-JJCtH38cYTBXW28wB9im0MwVpCrYpSkx_YlvAtoaiOWEwWjQDEGhhHYB87Yb_FqYz_GOJfNvP89la6lbATIrLpNIkJAbJizQ&usqp=CAE",
+            "alt":"İcuana"
+          },
+          "name":"Ürün Adı",
+          "about":"Ürün özellikleri hakkında detay. Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          "price":"100",
+          "currency":"₺"
+        }
+    ],
+    "i":[
+        {
+            "original": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8dZg3-XSWHwJWZfR4FboxEBvztDegQPLfu1jiMlujtA&s"
+        },
+        {
+            "original": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8dZg3-XSWHwJWZfR4FboxEBvztDegQPLfu1jiMlujtA&s"
+        }
+    ]
+}

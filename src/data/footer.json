@@ -1,0 +1,53 @@
+[
+    {
+        "head":"KURUMSAL",
+        "body":[
+            {
+                "text":"Hakkımızda",
+                "path":""
+            },
+            {
+                "text":"İletişim",
+                "path":""
+            },
+            {
+                "text":"Bilgi Güvenliği Politikası",
+                "path":""
+            }
+        ]
+    },
+    {
+        "head":"MÜŞTERİ İLİŞKİLERİ",
+        "body":[
+            {
+                "text":"Üyelik Sözleşmesi",
+                "path":""
+            },
+            {
+                "text":"Kişisel Veri Aydınlatma Metni",
+                "path":""
+            },
+            {
+                "text":"Ön Bilgilendirme Formu",
+                "path":""
+            },
+            {
+                "text":"Gizlilik Politikası",
+                "path":""
+            },
+            {
+                "text":"İade ve Değişim Koşulları",
+                "path":""
+            }
+        ]
+    },
+    {
+        "head":"SOSYAL MEDYA",
+        "body":[
+            {
+                "text":"Medya bağlantıları",
+                "path":""
+            }
+        ]
+    }
+]
