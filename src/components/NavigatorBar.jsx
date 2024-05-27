@@ -1,10 +1,9 @@
-import * as React from 'react';
+import { useEffect, useState } from "react";
 import { styled, alpha } from '@mui/material/styles';
 import {AppBar,Button,Box,Toolbar,IconButton,Typography,InputBase,Badge,MenuItem,Menu} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
@@ -48,8 +47,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function PrimarySearchAppBar() {
   const {currentUser}=useAuth();
   const navigate = useNavigate();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -112,26 +111,28 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      <MenuItem>        
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
-            <MailIcon />
+            <LocalGroceryStoreIcon />
           </Badge>
         </IconButton>
-        <p>Messages</p>
+        <p>Sepetim</p>
       </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
+      {currentUser ?
+        <MenuItem>
+          <IconButton
+            size="large"
+            aria-label="show 17 new notifications"
+            color="inherit"
+          >
+            <Badge badgeContent={17} color="error">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
+          <p>Bildirimler</p>
+        </MenuItem>:null}
+      {currentUser ?
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -143,12 +144,55 @@ export default function PrimarySearchAppBar() {
           <AccountCircle />
         </IconButton>
         <p>Profile</p>
-      </MenuItem>
+      </MenuItem>:
+      <MenuItem onClick={handleLogin}>
+      <IconButton
+        size="large"
+        aria-label="account of current user"
+        aria-controls="primary-search-account-menu"
+        aria-haspopup="true"
+        color="inherit"
+      >
+        <AccountCircle />
+      </IconButton>
+      <p>Giriş</p>
+    </MenuItem>}
     </Menu>
   );
+  
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const controlNavbar = () => {
+      if (window.scrollY > lastScrollY) {
+        // Scroll down
+        setShow(false);
+      } else {
+        // Scroll up
+        setShow(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+  
+    useEffect(() => {
+      window.addEventListener('scroll', controlNavbar);
+      return () => {
+        window.removeEventListener('scroll', controlNavbar);
+      };
+    }, [lastScrollY]);
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ bgcolor: "white", color: "black" }}>
+    <Box>
+      <AppBar 
+        sx={{
+          flexGrow: 1,
+          opacity: show ? 1 : 0,
+          transition: 'opacity 0.3s ease, transform 0.3s ease',
+          transform: show ? 'translateY(0)' : `translateY(-${lastScrollY}px)`,
+          width:"100%",
+          position: 'fixed',
+          zIndex: 10,
+          bgcolor: "white",
+          color: "black"
+          }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -159,7 +203,7 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Logo/>
+          <Logo sx={{display: { xs: 'none', md: 'flex' }}}/>
           <Search>
             <StyledInputBase
               placeholder="Ürün"
@@ -226,7 +270,7 @@ export default function PrimarySearchAppBar() {
     </Box>
   );
 }
-const Logo = () => {   
+const Logo = ({sx}) => {   
   const navigate = useNavigate();
   const handleClick = () => {
     navigate('/');
@@ -237,7 +281,8 @@ const Logo = () => {
       noWrap
       component="div"
       sx={{
-        display: { xs: 'none', sm: 'block' },
+        ...sx,
+        textAlign:"center",
         position: 'relative',
         cursor: "pointer",
         fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
@@ -267,3 +312,4 @@ const Logo = () => {
     </Typography>
   )
 }
+export {Logo}

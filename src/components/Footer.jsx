@@ -9,7 +9,8 @@ const Footer = () => {
             sx={{top: 64}}>
             <Grid
                 container
-                direction="row">
+                direction="row"
+                sx={{ display: { xs: 'none', md:"flex", sm: 'flex'  } }}>
                 <Grid
                     item
                     container
@@ -26,11 +27,31 @@ const Footer = () => {
                     </Grid>
                 </Grid>
             </Grid>
+            <Grid
+                container
+                direction="row"
+                sx={{ display: { xs: 'flex', md:"none", sm:"none" } }}>
+                <Grid
+                    item
+                    container
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="flex-start">
+                    {items.map(NavigateRoute)}
+                </Grid>
+                <Grid
+                    item
+                    container>
+                    <Grid item>
+                        <Typography sx={{mt:2, fontSize:"12px", fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif'}}>© Copyright {process.env.REACT_APP_DATE + " " + process.env.REACT_APP_COMPANY}</Typography>
+                    </Grid>
+                </Grid>
+            </Grid>
         </Toolbar>
 )}
 const NavigateRoute = (group) => {
     return(
-        <Grid item>
+        <Grid item sx={{minWidth:250, mb:2}}>
             <Typography variant='h6'>{group.head}</Typography>
             <Divider sx={{border:"2px solid"}}/>          
             {group.body.map(Navigator)}

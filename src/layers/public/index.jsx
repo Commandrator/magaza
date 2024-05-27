@@ -11,7 +11,8 @@ const Public = () => {
             sx={{
               position: 'relative',
               zIndex: 1,
-              top: 64
+              top: 64,
+              minHeight:"100vh"
             }}>
             <Outlet/>     
         </Container>

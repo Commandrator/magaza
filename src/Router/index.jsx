@@ -8,12 +8,12 @@ import Signup from 'pages/Auth/Signup';
 import Recovery from 'pages/Auth/Recovery';
 import Auth from 'layers/auth';
 const Provider = () => {
-    const {Page404} = useError();
+    const {Error} = useError();
     const router = createBrowserRouter([
         {
             path: "/",
             Component:Public,
-            errorElement:<Page404/>,
+            errorElement:<Error/>,
             children: [
                 {
                     index:true,
@@ -24,6 +24,7 @@ const Provider = () => {
         {
             path: "auth",
             Component:Auth,
+            errorElement:<Error/>,
             children: [
                 {
                     index:true,
