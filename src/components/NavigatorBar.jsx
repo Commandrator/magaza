@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { styled, alpha } from '@mui/material/styles';
 import {AppBar,Button,Box,Toolbar,IconButton,Typography,InputBase,Badge,MenuItem,Menu} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -7,7 +7,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import useAuth from 'constexts/AuthContext';
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -162,23 +162,36 @@ export default function PrimarySearchAppBar() {
   
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const controlNavbar = () => {
-      if (window.scrollY > lastScrollY) {
-        // Scroll down
-        setShow(false);
-      } else {
-        // Scroll up
-        setShow(true);
-      }
-      setLastScrollY(window.scrollY);
-    };
+  const controlNavbar = useCallback(() => {
+    if (window.scrollY > lastScrollY) {
+      // Scroll down
+      setShow(false);
+    } else {
+      // Scroll up
+      setShow(true);
+    }
+    setLastScrollY(window.scrollY);
+  },[lastScrollY]);
   
-    useEffect(() => {
-      window.addEventListener('scroll', controlNavbar);
-      return () => {
-        window.removeEventListener('scroll', controlNavbar);
-      };
-    }, [lastScrollY]);
+  useEffect(() => {
+    window.addEventListener('scroll', controlNavbar);
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY, controlNavbar]);
+  const [searchValue, setSearchValue]=useState();
+  const handleSearchValue = (e) => {
+    setSearchValue(e.target.value);
+  }
+  const searchNavigate = (e) => {
+    e.preventDefault();
+    if (searchValue.trim()) {
+      const urlParams = new URLSearchParams();
+      urlParams.set('q', searchValue.trim());
+      const url = "search?" + urlParams.toString();
+      navigate(url);
+    }
+  };
   return (
     <Box>
       <AppBar 
@@ -204,17 +217,20 @@ export default function PrimarySearchAppBar() {
             <MenuIcon />
           </IconButton>
           <Logo sx={{display: { xs: 'none', md: 'flex' }}}/>
-          <Search>
-            <StyledInputBase
-              placeholder="Ürün"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-            <SearchIconWrapper>
-              <IconButton type="submit" aria-label="search">
-                <SearchIcon />
-              </IconButton>
-            </SearchIconWrapper>
-          </Search>
+          <form onSubmit={searchNavigate}>
+            <Search>
+              <StyledInputBase
+                placeholder="Ürün"
+                inputProps={{ 'aria-label': 'search' }}
+                onChange={handleSearchValue}
+              />
+              <SearchIconWrapper>
+                <IconButton type="submit" aria-label="search">
+                  <SearchIcon />
+                </IconButton>
+              </SearchIconWrapper>
+            </Search>
+          </form>          
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
@@ -271,9 +287,11 @@ export default function PrimarySearchAppBar() {
   );
 }
 const Logo = ({sx}) => {   
-  const navigate = useNavigate();
+  const navigate = useNavigate();  
+  const location = useLocation();
   const handleClick = () => {
-    navigate('/');
+    if (location.pathname !== "/")
+      navigate('/');
   }
   return(
     <Typography

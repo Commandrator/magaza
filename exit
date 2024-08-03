@@ -1,0 +1,35 @@
+[33mcommit 06d8261b03e266ed49e4959ec5f20368e1e685d3[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Commandrator <62714720+Commandrator@users.noreply.github.com>
+Date:   Tue May 28 00:58:19 2024 +0300
+
+    Navbar ve giriş sayfaları düzeltildi
+
+[33mcommit e5babeaeed44e0493f14c1ae6cc76bfdf1f0db86[m
+Author: Commandrator <62714720+Commandrator@users.noreply.github.com>
+Date:   Wed May 22 11:30:21 2024 +0300
+
+    Router yapısı iyileştirilip bazı komponentler oluşturuldu.
+
+[33mcommit 743a5e5630195835e214924d225aa6810fa24a5c[m
+Author: Commandrator <62714720+Commandrator@users.noreply.github.com>
+Date:   Tue May 21 00:59:35 2024 +0300
+
+    Router yapısı ve bazı sayfa modülleri yüklendi
+
+[33mcommit 448023f1ae6365dad84a3c91bb587881731d0911[m
+Author: Commandrator <62714720+Commandrator@users.noreply.github.com>
+Date:   Sun May 19 17:37:09 2024 +0300
+
+    github yolu güncellendi
+
+[33mcommit ea4d69076045bc3c0147165b23ee0ed08d5e8039[m
+Author: Commandrator <62714720+Commandrator@users.noreply.github.com>
+Date:   Sun May 19 17:31:05 2024 +0300
+
+    Proje başlangıcı
+
+[33mcommit 6318d388d62ff82a8b180f865e8b71e9f80dc72a[m
+Author: Commandrator <62714720+Commandrator@users.noreply.github.com>
+Date:   Sun May 5 18:58:15 2024 +0300
+
+    Initialize project using Create React App

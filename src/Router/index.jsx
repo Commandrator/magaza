@@ -1,12 +1,13 @@
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import { AuthProvider } from 'constexts/AuthContext';
-import Store from 'pages/Store';
+import Main from 'pages/Store/Main';
 import useError from '../hooks/useError';
 import Public from 'layers/public';
 import Signin from 'pages/Auth/Signin';
 import Signup from 'pages/Auth/Signup';
 import Recovery from 'pages/Auth/Recovery';
 import Auth from 'layers/auth';
+import Search from 'pages/Store/Search';
 const Provider = () => {
     const {Error} = useError();
     const router = createBrowserRouter([
@@ -17,7 +18,11 @@ const Provider = () => {
             children: [
                 {
                     index:true,
-                    Component: Store
+                    Component: Main
+                },
+                {
+                    path: "/search",
+                    Component:Search
                 }
             ]
         },

@@ -5,7 +5,7 @@ const useAuth = () =>{
 }
 const AuthProvider = ({ children }) => {
   const [value, setValue] = useState('initial value');
-  const [currentUser, setCurrentUser] = useState(true);
+  const [currentUser, setCurrentUser] = useState();
   return (
     <AuthContext.Provider
       value={{ value, setValue, currentUser }}

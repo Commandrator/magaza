@@ -3,7 +3,7 @@ import MultiActionAreaCard from 'components/Card';
 import { Grid } from '@mui/material'; 
 import data from "data.json"
 import { useEffect, useState } from 'react';
-const Store = () => {
+const Main = () => {
     const [products, setProducts]=useState([]);
     const [images, setImages]=useState([]);
     const loader = () => {
@@ -50,4 +50,4 @@ const Store = () => {
     );
 }
 const Product = (product) => <MultiActionAreaCard product={product} key={product.id}/>
-export default Store;
+export default Main;

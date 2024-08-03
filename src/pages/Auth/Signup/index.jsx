@@ -1,10 +1,30 @@
-import { Divider, Grid, TextField, Typography, Button, Paper } from "@mui/material";
+import { Divider, Grid, TextField, Typography, Button, Paper, Radio, FormControl, FormLabel, FormGroup } from "@mui/material";
 import { Logo } from "components/NavigatorBar";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 const Signup = () => {
     const navigate = useNavigate();
     const handleLogin = () =>  navigate("/auth/signin");
     const handleSignup = () => navigate("/auth/signup");
+    const [authType, setAuthType]=useState(0);
+    const handleChangeType = (e) => {
+        const type = e.target.id;
+        let tempType = 0;
+        switch (type) {
+            case "auth_type_0":
+                tempType = 0
+                break;
+            case "auth_type_1":
+                tempType = 1
+                break;
+            default:
+                tempType = 0
+                break;
+        }
+        if (tempType !== authType){
+            setAuthType(tempType)
+        }
+    }
     return (
         <Grid
             container
@@ -25,16 +45,37 @@ const Signup = () => {
                             <Divider sx={{border:"solid 1px black", width:"55px"}}/>
                         </Grid>
                         <Grid item>
-                            <Grid item>
+                            <Grid item>    
                                 <TextField
                                     fullWidth
-                                    label="Kullanıcı Adı"
-                                    variant="outlined" />                                
+                                    label="E-posta"
+                                    type="email"
+                                    variant="outlined" />                             
                                 <TextField
                                     sx={{mt:2,mb:1}}
                                     fullWidth
                                     label="Prola"
+                                    type="password"
                                     variant="outlined" />
+                                <TextField
+                                    sx={{mt:1,mb:1}}
+                                    fullWidth
+                                    label="Kullanıcı Adı"
+                                    variant="outlined" />
+                                {/* <FormGroup>
+                                    <FormControl>
+                                        
+                                    <Radio
+                                        checked={authType === 0}
+                                        id="auth_type_0"
+                                        onClick={handleChangeType}/>
+                                    </FormControl>
+                                    <FormLabel>Bireysel</FormLabel>
+                                </FormGroup>
+                                <Radio
+                                    id="auth_type_1"
+                                    checked={authType === 1}
+                                    onClick={handleChangeType}/><Typography>Kurumsal</Typography> */}
                             </Grid>
                             <Grid item sx={{display:"flex", justifyContent:"end"}}>
                                 <Link
